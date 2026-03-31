@@ -1,5 +1,5 @@
-import type { TestResult } from '@rstest/core';
-import { escapeXML } from './xml-escape.js';
+import type { TestResult } from "@rstest/core";
+import { escapeXML } from "./xml-escape.js";
 
 export interface SonarFile {
   path: string;
@@ -11,10 +11,10 @@ export function generateXml(files: SonarFile[]): string {
     '<?xml version="1.0" encoding="UTF-8"?>',
     '<testExecutions version="1">',
     ...files.map(generateFileElement),
-    '</testExecutions>',
+    "</testExecutions>",
   ];
 
-  return lines.join('\n');
+  return lines.join("\n");
 }
 
 function generateFileElement(file: SonarFile): string {
@@ -24,7 +24,7 @@ function generateFileElement(file: SonarFile): string {
     `  </file>`,
   ];
 
-  return lines.join('\n');
+  return lines.join("\n");
 }
 
 function generateTestCaseElement(test: TestResult): string[] {
@@ -32,14 +32,14 @@ function generateTestCaseElement(test: TestResult): string[] {
   const duration = Math.round(test.duration ?? 0);
   const open = `    <testCase name="${name}" duration="${duration}"`;
 
-  if (test.status === 'fail') {
+  if (test.status === "fail") {
     const errors = test.errors ?? [];
     const error = errors[0];
 
     if (error) {
-      const tag = error.name === 'AssertionError' ? 'failure' : 'error';
-      const message = escapeXML(error.message ?? '');
-      const stack = error.stack ?? '';
+      const tag = error.name === "AssertionError" ? "failure" : "error";
+      const message = escapeXML(error.message ?? "");
+      const stack = error.stack ?? "";
       return [
         `${open}>`,
         `      <${tag} message="${message}">`,
@@ -52,17 +52,13 @@ function generateTestCaseElement(test: TestResult): string[] {
     return [`${open} />`];
   }
 
-  if (test.status === 'skip' || test.status === 'todo') {
-    return [
-      `${open}>`,
-      `      <skipped message=""/>`,
-      `    </testCase>`,
-    ];
+  if (test.status === "skip" || test.status === "todo") {
+    return [`${open}>`, `      <skipped message=""/>`, `    </testCase>`];
   }
 
   return [`${open} />`];
 }
 
 function buildTestName(test: TestResult): string {
-  return (test.parentNames ?? []).concat(test.name).join(' > ');
+  return (test.parentNames ?? []).concat(test.name).join(" > ");
 }

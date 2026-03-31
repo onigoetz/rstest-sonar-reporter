@@ -2,16 +2,16 @@
 
 type PatternAndReplace = [RegExp, string];
 
-const PATTERN_AMP: PatternAndReplace = [/&/g, '&amp;'];
-const PATTERN_DOUBLE_QUOTE: PatternAndReplace = [/"/g, '&quot;'];
-const PATTERN_SINGLE_QUOTE: PatternAndReplace = [/'/g, '&apos;'];
-const PATTERN_OPEN_BRACKET: PatternAndReplace = [/</g, '&lt;'];
-const PATTERN_CLOSE_BRACKET: PatternAndReplace = [/>/g, '&gt;'];
+const PATTERN_AMP: PatternAndReplace = [/&/g, "&amp;"];
+const PATTERN_DOUBLE_QUOTE: PatternAndReplace = [/"/g, "&quot;"];
+const PATTERN_SINGLE_QUOTE: PatternAndReplace = [/'/g, "&apos;"];
+const PATTERN_OPEN_BRACKET: PatternAndReplace = [/</g, "&lt;"];
+const PATTERN_CLOSE_BRACKET: PatternAndReplace = [/>/g, "&gt;"];
 
 // https://www.w3.org/TR/xml/#charsets
 // Char ::= #x9 | #xA | #xD | [#x20-#xD7FF] | [#xE000-#xFFFD] | [#x10000-#x10FFFF]
 const PATTERN_FORBIDDEN_XML_TO_REMOVE =
-  /[\x00-\x08\x0B\x0C\x0E-\x1F\x7F-\x84\x86-\x9F\uD800-\uDFFF\uFFFE\uFFFF]/gu;
+  /[\x00-\x08\x0B\x0C\x0E-\x1F\x7F-\x84\x86-\x9F\uD800-\uDFFF\uFFFE\uFFFF]/gu; /* oxlint-disable-line no-control-regex */
 
 // https://www.w3.org/TR/xml/#sec-xml-id (discouraged but not forbidden)
 const PATTERN_DISCOURAGED_XML_TO_REMOVE =
@@ -32,6 +32,6 @@ export function escapeXML(value: unknown): string {
 
 function removeInvalidXMLCharacters(text: string): string {
   return text
-    .replace(PATTERN_FORBIDDEN_XML_TO_REMOVE, '')
-    .replace(PATTERN_DISCOURAGED_XML_TO_REMOVE, '');
+    .replace(PATTERN_FORBIDDEN_XML_TO_REMOVE, "")
+    .replace(PATTERN_DISCOURAGED_XML_TO_REMOVE, "");
 }

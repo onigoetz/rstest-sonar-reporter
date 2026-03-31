@@ -1,7 +1,7 @@
-import { mkdirSync, writeFileSync } from 'node:fs';
-import { dirname, relative } from 'node:path';
-import type { Reporter, TestFileResult } from '@rstest/core';
-import { generateXml, type SonarFile } from './xml.js';
+import { mkdirSync, writeFileSync } from "node:fs";
+import { dirname, relative } from "node:path";
+import type { Reporter, TestFileResult } from "@rstest/core";
+import { generateXml, type SonarFile } from "./xml.js";
 
 export interface SonarReporterOptions {
   /** Required: path where the XML report will be written */
@@ -29,7 +29,7 @@ export class SonarReporter implements Reporter {
 
     const files: SonarFile[] = results
       .map((fileResult) => ({
-        path: resolvePath(relative(cwd, fileResult.testPath).replace(/\\/g, '/')),
+        path: resolvePath(relative(cwd, fileResult.testPath).replace(/\\/g, "/")),
         results: fileResult.results,
       }))
       .sort((a, b) => (a.path < b.path ? -1 : a.path > b.path ? 1 : 0));
@@ -38,7 +38,7 @@ export class SonarReporter implements Reporter {
     const outputPath = this.options.outputFile;
 
     mkdirSync(dirname(outputPath), { recursive: true });
-    writeFileSync(outputPath, xml, 'utf-8');
+    writeFileSync(outputPath, xml, "utf-8");
 
     console.log(`SonarQube report written to ${outputPath}`);
   }

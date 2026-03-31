@@ -18,13 +18,11 @@ Add `SonarReporter` to the `reporters` array in your rstest config:
 
 ```ts
 // rstest.config.ts
-import { defineConfig } from '@rstest/core';
-import { SonarReporter } from 'rstest-sonar-reporter';
+import { defineConfig } from "@rstest/core";
+import { SonarReporter } from "rstest-sonar-reporter";
 
 export default defineConfig({
-  reporters: [
-    new SonarReporter({ outputFile: 'reports/sonar-report.xml' }),
-  ],
+  reporters: [new SonarReporter({ outputFile: "reports/sonar-report.xml" })],
 });
 ```
 
@@ -41,7 +39,7 @@ sonar.testExecutionReportPaths=reports/sonar-report.xml
 Path where the XML report will be written. The directory is created automatically if it does not exist.
 
 ```ts
-new SonarReporter({ outputFile: 'reports/sonar-report.xml' })
+new SonarReporter({ outputFile: "reports/sonar-report.xml" });
 ```
 
 ### `onWritePath` (optional)
@@ -50,9 +48,9 @@ A function that transforms each test file path before it is written into the XML
 
 ```ts
 new SonarReporter({
-  outputFile: 'sonar-report.xml',
+  outputFile: "sonar-report.xml",
   onWritePath: (path) => `frontend/${path}`,
-})
+});
 ```
 
 ## Output format
@@ -81,7 +79,7 @@ The reporter produces a file conforming to the [Generic Test Execution](https://
 - **Failed** tests with an `AssertionError` produce a `<failure>` child element.
 - **Failed** tests with any other error type produce an `<error>` child element.
 - **Skipped** and **todo** tests produce a `<skipped>` child element.
-- Test names include their full suite hierarchy joined with ` > ` (e.g. `suite > subsuite > test name`).
+- Test names include their full suite hierarchy joined with `>` (e.g. `suite > subsuite > test name`).
 - Durations are in milliseconds, rounded to the nearest integer.
 - File paths are relative to `process.cwd()` and use forward slashes.
 - Files are sorted alphabetically for deterministic output.
