@@ -1,0 +1,48 @@
+{
+  "name": "rstest-sonar-reporter",
+  "version": "0.1.0",
+  "description": "SonarQube Generic Test Execution reporter for rstest",
+  "author": "Stéphane Goetz <onigoetz@onigoetz.ch> (https://onigoetz.ch)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/onigoetz/rstest-sonar-reporter.git"
+  },
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
+  },
+  "packageManager": "yarn@4.13.0",
+  "scripts": {
+    "build": "tsc --project tsconfig.build.json",
+    "typecheck": "tsc --noEmit",
+    "test": "rstest run",
+    "prepublishOnly": "yarn build"
+  },
+  "peerDependencies": {
+    "@rstest/core": ">=0.9.0"
+  },
+  "devDependencies": {
+    "@rstest/core": "^0.9.5",
+    "@rstest/coverage-istanbul": "^0.3.0",
+    "@types/node": "^22.0.0",
+    "typescript": "^5.8.0"
+  },
+  "keywords": [
+    "rstest",
+    "sonar",
+    "sonarqube",
+    "reporter",
+    "test"
+  ]
+}
