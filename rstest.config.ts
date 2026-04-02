@@ -5,6 +5,7 @@ export default defineConfig({
   include: ["test/*.test.ts"],
   reporters: ["default", new SonarReporter({ outputFile: "./coverage/sonar-report.xml" })],
   coverage: {
+    include: ["src/**"],
     reporters: ["html", "lcovonly", ["text", { skipFull: true }]],
   },
 });

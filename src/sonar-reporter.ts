@@ -32,7 +32,7 @@ export class SonarReporter implements Reporter {
         path: resolvePath(relative(cwd, fileResult.testPath).replace(/\\/g, "/")),
         results: fileResult.results,
       }))
-      .sort((a, b) => (a.path < b.path ? -1 : a.path > b.path ? 1 : 0));
+      .sort((a, b) => a.path.localeCompare(b.path));
 
     const xml = generateXml(files);
     const outputPath = this.options.outputFile;
