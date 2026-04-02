@@ -32,6 +32,6 @@ export function escapeXML(value: unknown): string {
 
 function removeInvalidXMLCharacters(text: string): string {
   return text
-    .replace(PATTERN_FORBIDDEN_XML_TO_REMOVE, "")
-    .replace(PATTERN_DISCOURAGED_XML_TO_REMOVE, "");
+    .replaceAll(PATTERN_FORBIDDEN_XML_TO_REMOVE, "")
+    .replaceAll(PATTERN_DISCOURAGED_XML_TO_REMOVE, "");
 }

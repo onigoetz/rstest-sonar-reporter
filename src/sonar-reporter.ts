@@ -29,7 +29,7 @@ export class SonarReporter implements Reporter {
 
     const files: SonarFile[] = results
       .map((fileResult) => ({
-        path: resolvePath(relative(cwd, fileResult.testPath).replace(/\\/g, "/")),
+        path: resolvePath(relative(cwd, fileResult.testPath).replaceAll("\\", "/")),
         results: fileResult.results,
       }))
       .sort((a, b) => a.path.localeCompare(b.path));
