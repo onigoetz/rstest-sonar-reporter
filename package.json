@@ -38,11 +38,11 @@
     "format:check": "oxfmt --check"
   },
   "devDependencies": {
-    "@rstest/core": "^0.9.5",
-    "@rstest/coverage-istanbul": "^0.3.0",
+    "@rstest/core": "^0.10.0",
+    "@rstest/coverage-istanbul": "^0.10.0",
     "@types/node": "^22.0.0",
     "fast-xml-parser": "^5.5.9",
-    "oxfmt": "^0.49.0",
+    "oxfmt": "^0.51.0",
     "oxlint": "^1.58.0",
     "typescript": "^5.8.0"
   },
@@ -52,5 +52,5 @@
   "engines": {
     "node": "^20.19.0 || >=22.12.0"
   },
-  "packageManager": "yarn@4.14.1"
+  "packageManager": "yarn@4.15.0"
 }
