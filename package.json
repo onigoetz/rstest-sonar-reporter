@@ -1,6 +1,6 @@
 {
   "name": "rstest-sonar-reporter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "SonarQube Generic Test Execution reporter for rstest",
   "keywords": [
     "reporter",
