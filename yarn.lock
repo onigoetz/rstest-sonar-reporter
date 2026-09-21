@@ -343,10 +343,10 @@ __metadata:
   linkType: hard
 
 "@rsbuild/core@npm:~2.2.7":
-  version: 2.2.7
-  resolution: "@rsbuild/core@npm:2.2.7"
+  version: 2.2.8
+  resolution: "@rsbuild/core@npm:2.2.8"
   dependencies:
-    "@rspack/core": "npm:~2.2.5"
+    "@rspack/core": "npm:~2.2.6"
     "@swc/helpers": "npm:^0.5.23"
   peerDependencies:
     core-js: ">= 3.0.0"
@@ -355,7 +355,7 @@ __metadata:
       optional: true
   bin:
     rsbuild: ./bin/rsbuild.js
-  checksum: 10c0/a794cbbd3b63a40753b572669839f8a9e38d2f252bdedd36abe56b7acbc061767281c9a7fd81455081578a13b9b347ab494de16a75a0b2dcedc02d40addcd326
+  checksum: 10c0/49ae761e2beb74c9e285f5d76e3a69fcad56db551ef4f4e651c049813a07ed6f4f6f0aff05dbe98a92e8f17f33a004cf60f2e9f372b035831ef4d5d79624fb3d
   languageName: node
   linkType: hard
 
@@ -512,7 +512,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rspack/core@npm:~2.2.5":
+"@rspack/core@npm:~2.2.6":
   version: 2.2.6
   resolution: "@rspack/core@npm:2.2.6"
   dependencies:
@@ -575,11 +575,11 @@ __metadata:
   linkType: hard
 
 "@tybys/wasm-util@npm:^0.10.3":
-  version: 0.10.3
-  resolution: "@tybys/wasm-util@npm:0.10.3"
+  version: 0.10.4
+  resolution: "@tybys/wasm-util@npm:0.10.4"
   dependencies:
     tslib: "npm:^2.4.0"
-  checksum: 10c0/fd2bd2a79c6cd8c79ed1cf7a0fa375c64589264c88a27acaf9756d556b453ea222b62a4f68dd2fbb8b3a78b6bab3b1f4fb2431b6afc6aeda8344b53a521a1cd3
+  checksum: 10c0/27947f254efa3f2bc41f47040f57f41c246200c6439a9fd54c69f50940e320022c320275f138e30b543ee81ce69593905dfa7ba0831577ab636f829aafa70701
   languageName: node
   linkType: hard
 
